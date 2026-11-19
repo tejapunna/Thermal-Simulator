@@ -1,0 +1,11 @@
+services:
+  thermal-simulator:
+    build: .
+    init: true
+    restart: unless-stopped
+    environment:
+      PORT: 7788
+      PRINTERS: "Counter:9100,Kitchen:9101,Bar:9102"
+    ports:
+      - "7788:7788"
+      - "9100-9102:9100-9102"
